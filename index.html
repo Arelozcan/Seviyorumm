@@ -2,97 +2,23 @@
 <html lang="tr">
 <head>
   <meta charset="UTF-8">
-  <title>Barışma Teklifi</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      background-color: #f0f0f0;
-      margin-top: 50px;
-    }
-    h2 {
-      margin: 20px 0 5px;
-      font-size: 28px;
-    }
-    #naz {
-      font-family: 'Dancing Script', cursive;
-      font-size: 36px;
-      font-weight: bold;
-      color: #d63384;
-      margin-bottom: 30px;
-    }
-    button {
-      padding: 10px 20px;
-      font-size: 18px;
-      margin: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    #yesButton {
-      background-color: #4CAF50;
-      color: white;
-      transition: all 0.3s ease;
-    }
-    #noButton {
-      background-color: #f44336;
-      color: white;
-    }
-    #message {
-      margin-top: 30px;
-      font-size: 28px;
-      color: #e91e63;
-      font-weight: bold;
-    }
-  </style>
+  <title>Mektup</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="container">
+    <button id="openBtn">📩 Bir mektubun var</button>
+    <div class="envelope" id="envelope">
+      <div class="paper">
+        <p class="handwriting">
+          Yazılımcı olsam ne fayda...<br>
+          sana yazamadıktan sonra...
+        </p>
+        <p class="signature">– Arel Ö.</p>
+      </div>
+    </div>
+  </div>
 
-  <h2 id="title">Benimle barışmak ister misin?</h2>
-  <div id="naz">Naz</div>
-  
-  <button id="yesButton">Evet</button>
-  <button id="noButton">Hayır</button>
-
-  <div id="message"></div>
-
-  <script>
-    const yesButton = document.getElementById("yesButton");
-    const noButton = document.getElementById("noButton");
-    let yesFontSize = 18;
-    let noClickCount = 0;
-
-    noButton.addEventListener("click", () => {
-      yesFontSize += 5;
-      yesButton.style.fontSize = yesFontSize + "px";
-      noClickCount++;
-      if (noClickCount >= 5) {
-        noButton.remove();
-      }
-    });
-
-    yesButton.addEventListener("click", () => {
-      document.body.innerHTML = '<div id="message">Cidden mi? Teşekkür ederim aşkım!</div>';
-      document.body.style.backgroundColor = "#f0f0f0";
-      document.body.style.fontFamily = "Arial, sans-serif";
-      document.body.style.textAlign = "center";
-      document.body.style.marginTop = "100px";
-
-      const message = document.getElementById("message");
-      message.style.fontSize = "32px";
-      message.style.color = "#e91e63";
-      message.style.fontWeight = "bold";
-
-      // Konfeti patlat
-      confetti({
-        particleCount: 200,
-        spread: 90,
-        origin: { y: 0.6 }
-      });
-    });
-  </script>
-
+  <script src="script.js"></script>
 </body>
 </html>
